@@ -1,0 +1,49 @@
+html *{
+    margin: 0px;
+    padding: 0px;
+    border: none;
+    text-decoration: none;
+    outline: none;
+    color: yellow;
+    font-family: Noto sans,Verdana, Geneva, Tahoma, sans-serif;
+}
+body{
+    background-image: url("../assets/bg1.jpeg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+}
+#main{
+    width: 80%;
+    margin:10%;
+    text-align: center;
+}
+#main h1{
+    font-size: 50px;
+    font-weight: bolder;
+    margin: 0px 0px 20px 0px;
+}
+#main p{
+    font-size: 12px;
+    font-weight: bolder;
+    width: 80%;
+    display: inline-block;
+    margin: 0px 0px 20px 0px;
+}
+
+#main a{
+    font-size: 14px;
+    font-weight: bolder;
+    margin: 0px 0px 20px 0px;
+    display: inline-block;
+    color: #fff;
+    background-color: goldenrod;
+    padding: 10px;
+    width:200px;
+    border-radius: 50px;
+
+}
+#main a:hover{
+    color: #555;
+    background-color: yellow;
+}

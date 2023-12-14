@@ -1,0 +1,136 @@
+html *{
+    margin: 0px;
+    padding: 0px;
+    border: none;
+    text-decoration: none;
+    outline: none;
+    color: yellow;
+    font-family: Noto sans,Verdana, Geneva, Tahoma, sans-serif;
+}
+body{
+    background-image: url("../assets/bg2.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+}
+#wrapper{
+    width: 90%;
+    margin:2% 5%;
+    overflow: hidden;
+}
+.btn_active{
+    background-color: yellow;
+    color: #555;
+}
+.btn_inactive{
+    background-color: goldenrod;
+    color: #fff;
+}
+#main{
+    width: 80%;
+    float: left;
+}
+#options{
+    margin-top: 50px;
+    width: 100%;
+}
+#options button{
+    width: 49%;
+    background-color: goldenrod;
+    border-radius: 50px;
+    color: #fff;
+    padding: 5px 0px;
+    margin: 0px 2% 10px 0px;
+    text-align: center;
+    float: left;
+}
+#options button:hover{
+    background-color: yellow;
+    color: #555;
+}
+#options button:nth-of-type(2n){
+    margin-right: 0px;
+}
+#question{
+    margin-top: 30px;
+    border: 2px solid yellow;
+    padding: 10px;
+    height: 40vh;
+}
+#help{
+    overflow: hidden;
+}
+#help div{
+    margin-right: 10px;
+    float: left;
+}
+#help div img{
+    background-color: goldenrod;
+    height: 40px;
+    height: 40px;
+    border-radius: 100px;
+}
+#help div img:hover{
+    background-color: yellow;
+}
+#help div span{
+    background-color: goldenrod;
+    height: 40px;
+    height: 40px;
+    text-align: center;
+    display: block;
+    color: black;
+    border-radius: 100px;
+}
+#help div span:hover{
+    background-color: yellow;
+}
+#aside{
+    width: 18%;
+    padding: 1%;
+    float: right;
+}
+#aside button{
+    display: block;
+    background-color: goldenrod;
+    color: #fff;
+    margin-bottom: 20px;
+    padding: 2px 0px;
+    font-weight: bolder;
+    border-radius: 50px;
+}
+#aside button:hover{
+    background-color: yellow;
+    color: #555;
+}
+#lvl10{
+    width: 150px;
+}
+#lvl9{
+    width: 140px;
+}
+#lvl8{
+    width: 130px;
+}
+#lvl7{
+    width: 120px;
+}
+#lvl6{
+    width: 110px;
+}
+#lvl5{
+    width: 100px;
+}
+
+#lvl4{
+    width: 90px;
+}
+#lvl3{
+    width: 80px;
+}
+#lvl2{
+    width: 70px;
+}
+#lvl1{
+    width: 60px;
+}
