@@ -7,24 +7,222 @@ html *{
     color: yellow;
     font-family: Noto sans,Verdana, Geneva, Tahoma, sans-serif;
 }
+.cb{
+    clear: both;
+}
 body{
     background-image: url("../assets/bg2.jpg");
     background-size: cover;
     background-repeat: no-repeat;
-    height: 100%;
 }
 #wrapper{
-    width: 90%;
-    margin:2% 5%;
+    width: 100%;
+    height: 100vh;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+#container{
+    padding: 2% 5% 0% 5%;
+}
+#audienceWindow{
+    background-color: rgba(0, 0, 0, 0.3);
+    position: fixed;
+    z-index: 100;
+    top: 0px;
+    width: 100%;
+    height: 100vh;
+    display: none;
+}
+#audienceWindow .sidebar{
+    background-color: goldenrod;
+    width: 250px;
+    height: inherit;
+    overflow: auto;
+}
+#audienceWindow .sidebar .bar-chart{
+    margin-top: 10px;
+    text-align: center;
+    height: 250px;
+    border-bottom: 5px solid yellow;
     overflow: hidden;
 }
-.btn_active{
+#audienceWindow .sidebar .bar-chart .bar1{
+    text-align: center;
+    width: 16%;
+    margin-left: 4.5%;
+    margin-right: 4.5%;
+    height: 100%;
+    margin-top: 0%;
+    background-color: blueviolet;
+    font-weight: bolder;
+    color: #fff;
+    float: left;
+}
+#audienceWindow .sidebar .bar-chart .bar2{
+    text-align: center;
+    width: 16%;
+    margin-left: 4.5%;
+    margin-right: 4.5%;
+    margin-top: 25%;
+    height: 75%;
+    background-color: darkred;
+    font-weight: bolder;
+    color: #fff;
+    float: left;
+}
+#audienceWindow .sidebar .bar-chart .bar3{
+    text-align: center;
+    width: 16%;
+    margin-left: 4.5%;
+    margin-right: 4.5%;
+    margin-top: 50%;
+    height: 50%;
+    background-color: yellow;
+    color: #fff;
+    font-weight: bolder;
+    float: left;
+}
+#audienceWindow .sidebar .bar-chart .bar4{
+    text-align: center;
+    width: 16%;
+    margin-left: 4.5%;
+    margin-right: 4.5%;
+    margin-top: 75%;
+    height: 25%;
+    background-color: #555;
+    font-weight: bolder;
+    color: #fff;
+    float: left;
+}
+#audienceWindow .sidebar .label span{
+    margin: 0px 10%;
+    display: inline-block;
+}
+#audienceWindow .sidebar .close{
+    margin-top: 100px;
+    text-align: center;
+}
+#audienceWindow .sidebar .close button{
+    background-color: #555;
+    padding: 10px;
+    width: 100px;
+    border-radius: 50px;
+    color: #fff;
+}
+#audienceWindow .sidebar .close button:hover{
     background-color: yellow;
     color: #555;
 }
-.btn_inactive{
+#audienceWindow .sidebar .close button:active{
+    background-color: yellow;
+    color: #555;
+}
+#audienceWindow .sidebar .close button:focus{
+    background-color: yellow;
+    color: #555;
+}
+#callWindow{
+    background-color: rgba(0, 0, 0, 0.3);
+    position: fixed;
+    z-index: 100;
+    top: 0px;
+    width: 100%;
+    height: 100vh;
+    display: none;
+}
+#callWindow .sidebar{
     background-color: goldenrod;
+    width: 250px;
+    height: inherit;
+    overflow: auto;
+}
+#callWindow .sidebar .widget{
+    padding: 8px;
+    font-weight: bolder;
+    color: #555;
+    text-align: left;
+    font-size: 10px;
+    height: 250px;
+}
+#callWindow .sidebar .close{
+    margin-top: 100px;
+    text-align: center;
+}
+#callWindow .sidebar .close button{
+    background-color: #555;
+    padding: 10px;
+    width: 100px;
+    border-radius: 50px;
     color: #fff;
+}
+#callWindow .sidebar .close button:hover{
+    background-color: yellow;
+    color: #555;
+}
+#callWindow .sidebar .close button:active{
+    background-color: yellow;
+    color: #555;
+}
+#callWindow .sidebar .close button:focus{
+    background-color: yellow;
+    color: #555;
+}
+#scoreWindow{
+    background-color: rgba(0, 0, 0, 0.3);
+    position: fixed;
+    z-index: 100;
+    top: 0px;
+    width: 100%;
+    height: 100vh;
+    display: none;
+}
+#scoreWindow .sidebar{
+    background-color: goldenrod;
+    width: 250px;
+    height: inherit;
+    overflow: auto;
+}
+#scoreWindow .sidebar .widget{
+    margin-top: 10px;
+    text-align: center;
+    height: 250px;
+    text-align: center;
+}
+#scoreWindow .sidebar .widget h1{
+    color: royalblue ;
+    font-size: 20px;
+}
+#scoreWindow .sidebar .widget h2{
+    background-color: yellow;
+    color: #555;
+    height: 40px;
+    width: 40px;
+    margin-left: 35%;
+    padding: 10px;
+    border-radius: 100px;
+}
+#scoreWindow .sidebar .close{
+    margin-top: 100px;
+    text-align: center;
+}
+#scoreWindow .sidebar .close button{
+    background-color: #555;
+    padding: 10px;
+    width: 100px;
+    border-radius: 50px;
+    color: #fff;
+}
+#scoreWindow .sidebar .close button:hover{
+    background-color: yellow;
+    color: #555;
+}
+#scoreWindow .sidebar .close button:active{
+    background-color: yellow;
+    color: #555;
+}
+#scoreWindow .sidebar .close button:focus{
+    background-color: yellow;
+    color: #555;
 }
 #main{
     width: 80%;
@@ -48,6 +246,14 @@ body{
     background-color: yellow;
     color: #555;
 }
+#options button:active{
+    background-color: yellow;
+    color: #555;
+}
+#options button:focus{
+    background-color: yellow;
+    color: #555;
+}
 #options button:nth-of-type(2n){
     margin-right: 0px;
 }
@@ -60,29 +266,39 @@ body{
 #help{
     overflow: hidden;
 }
-#help div{
+#help button{
     margin-right: 10px;
     float: left;
-}
-#help div img{
     background-color: goldenrod;
-    height: 40px;
-    height: 40px;
+    padding: 25px;
+    height: 10px;
+    width: 10px;
     border-radius: 100px;
+    color: #000;
 }
-#help div img:hover{
-    background-color: yellow;
+#help button img{
+    position: absolute;
+    margin-left: -10px;
+    margin-top: -15px;
 }
-#help div span{
-    background-color: goldenrod;
-    height: 40px;
-    height: 40px;
-    text-align: center;
-    display: block;
-    color: black;
-    border-radius: 100px;
+#help button span{
+    position: absolute;
+    margin-left: -17px;
+    color: #000;
+    font-weight: bolder;
+    margin-top: -12px;
 }
-#help div span:hover{
+#help button h1{
+    font-size: 50px;
+    position: absolute;
+    font-weight: 100;
+    z-index: 20;
+    top: 10px;
+    margin-left: -12px;
+    color: #000;
+    display: none;
+}
+#help button:hover{
     background-color: yellow;
 }
 #aside{
@@ -98,39 +314,5 @@ body{
     padding: 2px 0px;
     font-weight: bolder;
     border-radius: 50px;
-}
-#aside button:hover{
-    background-color: yellow;
-    color: #555;
-}
-#lvl10{
-    width: 150px;
-}
-#lvl9{
-    width: 140px;
-}
-#lvl8{
-    width: 130px;
-}
-#lvl7{
-    width: 120px;
-}
-#lvl6{
-    width: 110px;
-}
-#lvl5{
-    width: 100px;
-}
-
-#lvl4{
-    width: 90px;
-}
-#lvl3{
-    width: 80px;
-}
-#lvl2{
-    width: 70px;
-}
-#lvl1{
-    width: 60px;
+    width: 100%;
 }

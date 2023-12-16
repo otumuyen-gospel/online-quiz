@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <script src="../script/quiz.js"></script>
+        <script src="../script/quiz.js" defer></script>
         <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@900&display=swap" rel="stylesheet">
@@ -9,42 +9,93 @@
         <title>ONLINE QUIZ</title>
     </head>
     <body>
-        <div id="wrapper">
-            <div id="main">
-                <div id="help">
-                    <div>
-                        <img src="../assets/audience.svg">
+        <div id="audienceWindow">
+            <div class="sidebar">
+                <div class="bar-chart">
+                    <div class="bar1">
+                        100%
                     </div>
-                    <div>
-                        <img src="../assets/call.svg">
+                    <div class="bar2">
+                        75%
                     </div>
-                    <div>
-                        <span>50:50</span>
+                    <div class="bar3">
+                        50%
                     </div>
+                    <div class="bar4">
+                        25%
+                    </div>
+                    <div class="cb"></div>
                 </div>
-                <div id="question">
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat
-                    </p>
+                <div class="label">
+                    <span>A</span><span>B</span><span>C</span><span>D</span>
                 </div>
-                <div id="options">
-                    <button>OPTION A</button>
-                    <button>OPTION B</button>
-                    <button>OPTION C</button>
-                    <button>OPTION D</button>
+                <div class="close">
+                    <button onclick="closeSidebar('audienceWindow');">CLOSE</button>
                 </div>
             </div>
-            <div id="aside">
-                <button id="lvl10">LEVEL 10</button>
-                <button id="lvl9">LEVEL 9</button>
-                <button id="lvl8">LEVEL 8</button>
-                <button id="lvl7">LEVEL 7</button>
-                <button id="lvl6">LEVEL 6</button>
-                <button id="lvl5">LEVEL 5</button>
-                <button id="lvl4">LEVEL 4</button>
-                <button id="lvl3">LEVEL 3</button>
-                <button id="lvl2">LEVEL 2</button>
-                <button id="lvl1">LEVEL 1</button>
+        </div>
+        <div id="callWindow">
+            <div class="sidebar">
+                <div class="widget">
+                </div>
+                <div class="close">
+                    <button onclick="closeSidebar('callWindow');">CLOSE</button>
+                </div>
+            </div>
+        </div>
+        <div id="scoreWindow">
+            <div class="sidebar">
+                <div class="widget">
+                    <h1>YOUR <br/> OVERALL <br/> PERFORMANCE</h1>
+                    <h2>70%</h2>
+                </div>
+                <div class="close">
+                    <button onclick="restart();">RESTART</button><br/><br/>
+                    <button onclick="closeApp();">CLOSE</button>
+                </div>
+            </div>
+        </div>
+        <div id="wrapper">
+            <div id="container">
+                <div id="main">
+                    <div id="help">
+                        <button id="line1" onclick="audience(1,'audienceWindow');">
+                            <h1 id="line-cancel1">X</h1>
+                            <img src="../assets/audience.svg">
+                        </button>
+                        <button id="line2" onclick="call(2,'callWindow');">
+                            <h1 id="line-cancel2">X</h1>
+                            <img src="../assets/call.svg">
+                        </button>
+                        <button id="line3" onclick="fiftyFifty(3);">
+                            <h1 id="line-cancel3">X</h1>
+                            <span>50:50</span>
+                        </button>
+                    </div>
+                    <div id="question">
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat
+                        </p>
+                    </div>
+                    <div id="options">
+                        <button id="option1" onclick="processOption('option1');">OPTION A</button>
+                        <button id="option2" onclick="processOption('option2');">OPTION B</button>
+                        <button id="option3" onclick="processOption('option3');">OPTION C</button>
+                        <button id="option4" onclick="processOption('option4');">OPTION D</button>
+                    </div>
+                </div>
+                <div id="aside">
+                    <button id="lvl10">LEVEL 10</button>
+                    <button id="lvl9">LEVEL 9</button>
+                    <button id="lvl8">LEVEL 8</button>
+                    <button id="lvl7">LEVEL 7</button>
+                    <button id="lvl6">LEVEL 6</button>
+                    <button id="lvl5">LEVEL 5</button>
+                    <button id="lvl4">LEVEL 4</button>
+                    <button id="lvl3">LEVEL 3</button>
+                    <button id="lvl2">LEVEL 2</button>
+                    <button id="lvl1">LEVEL 1</button>
+                </div>
             </div>
         </div>
     </body>
