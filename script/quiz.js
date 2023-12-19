@@ -1,4 +1,4 @@
-var Level = 11;
+var Level = 1;
 restart();
 function disableHelp(index){
  var line = document.getElementById("line"+index);
@@ -45,23 +45,63 @@ function enableHelp(){
 
 function restart(){
     closeSidebar('scoreWindow');
-    resetLevelAnimation();
     enableHelp();
     enableOption();
     //INITIALIZE QUIZ AND FETCH FIRST QUIZ
     startQuiz();
+    resetLevelAnimation();
 }
 function closeApp(){
     window.location.href = "../";
 }
 function startQuiz(){
-    
+    var url = "../script/start.php";
+    //SEND LEVEL = 1 AND ANSWER = "" TO REQUEST.PHP
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function(){
+        if (xhr.readyState == 4){
+            if ((xhr.status >= 200 && xhr.status < 300) || xhr.status == 304){
+                var result = JSON.parse(xhr.responseText);
+                var question = document.querySelector("#question p");
+                question.innerHTML = result[0]["question"];
+                document.getElementById("option1").innerHTML = "A: "+result[0]["option1"];
+                document.getElementById("option2").innerHTML = "B: "+result[0]["option2"];
+                document.getElementById("option3").innerHTML = "C: "+result[0]["option3"];
+                document.getElementById("option4").innerHTML = "D: "+result[0]["option4"];
+            } else {
+                var result = xhr.status;
+            }
+        }
+    };
+    xhr.open("get",url, true);
+    xhr.send(null);
 }
 function nextQuiz(answer){
     //GRADE SCORE AND FETCH NEXT QUIZ
-    setLevel();
+    var url = "../script/next.php?level="+encodeURIComponent(Level)
+    +"&answer="+encodeURIComponent(answer)+"";
+    //SEND LEVEL = 1 AND ANSWER = "" TO REQUEST.PHP
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function(){
+        if (xhr.readyState == 4){
+            if ((xhr.status >= 200 && xhr.status < 300) || xhr.status == 304){
+                var result = JSON.parse(xhr.responseText);
+                var question = document.querySelector("#question p");
+                question.innerHTML = result[0]["question"];
+                document.getElementById("option1").innerHTML = "A: "+result[0]["option1"];
+                document.getElementById("option2").innerHTML = "B: "+result[0]["option2"];
+                document.getElementById("option3").innerHTML = "C: "+result[0]["option3"];
+                document.getElementById("option4").innerHTML = "D: "+result[0]["option4"];
+            } else {
+                var result = xhr.status;
+            }
+        }
+    };
+    xhr.open("get",url, true);
+    xhr.send(null);
+    setLevel(answer);
 }
-function setLevel(){
+function setLevel(answer){
   if(Level < 10){
     Level += 1;
     document.getElementById("lvl10").style.backgroundColor = "goldenrod";
@@ -94,7 +134,7 @@ function setLevel(){
     document.getElementById("lvl"+Level).style.color = "#555";
   }else{
     //grade and show user performance
-    score();
+    score(answer);
   }
 
 }
@@ -136,6 +176,7 @@ function resetLevelAnimation(){
     var intervalId = setInterval(() => {
        if(Level <= 1){
          clearInterval(intervalId);
+        resetLevel(Level);
        }else{
         Level--; 
         resetLevel(Level);
@@ -144,7 +185,7 @@ function resetLevelAnimation(){
 }
 function processOption(id){
     disableOption(id);
-    var answer = document.getElementById(id).innerHTML;
+    var answer = document.getElementById(id).innerHTML.split(":")[1];
     nextQuiz(answer);
     enableOption();
 }
@@ -248,7 +289,23 @@ function voteSimulation(){
     votes.push(Math.round(a),Math.round(b),Math.round(c),Math.round(d))
     return votes;
 }
-function score(){
+function score(answer){
+    //GRADE SCORE AND FETCH NEXT QUIZ
+    var url = "../script/end.php?level="+encodeURIComponent(Level)
+    +"&answer="+encodeURIComponent(answer);
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function(){
+        if (xhr.readyState == 4){
+            if ((xhr.status >= 200 && xhr.status < 300) || xhr.status == 304){
+                var result = xhr.responseText;
+                document.getElementById("score").innerHTML = result+"%";
+            } else {
+                var result = xhr.statusText;
+            }
+        }
+    };
+    xhr.open("get",url, true);
+    xhr.send(null);
     openSidebar("scoreWindow");
 }
 function call(index,value){
@@ -304,20 +361,36 @@ function openSidebar(value){
 
 function fiftyFifty(index){
      disableHelp(index);
-    //elimate two options
-    var option1 = getRandom();
-    var option2 = getRandom();
-    if(option1 == option2){
-        if(option2 > 1){
-            option2 -= 1;
-        }else{
-            option2 += 1;
-        }
-    }
-
-    //REMOVE TWO OPTION
-    document.getElementById("option"+option1).style.display = "none";
-    document.getElementById("option"+option2).style.display = "none";
+     var xhr = new XMLHttpRequest();
+     xhr.onreadystatechange = function(){
+         if (xhr.readyState == 4){
+             if ((xhr.status >= 200 && xhr.status < 300) || xhr.status == 304){
+                 var result = xhr.responseText;
+                if(document.getElementById("option1").innerHTML.split(":")[1].trim() == result){
+                    //REMOVE TWO OPTION
+                   document.getElementById("option2").style.display = "none";
+                   document.getElementById("option3").style.display = "none";
+                }else if(document.getElementById("option2").innerHTML.split(":")[1].trim() == result){
+                    //REMOVE TWO OPTION
+                   document.getElementById("option3").style.display = "none";
+                   document.getElementById("option4").style.display = "none";
+                }else if(document.getElementById("option3").innerHTML.split(":")[1].trim() == result){
+                    //REMOVE TWO OPTION
+                   document.getElementById("option4").style.display = "none";
+                   document.getElementById("option1").style.display = "none";
+                } else if(document.getElementById("option4").innerHTML.split(":")[1].trim() == result){
+                    //REMOVE TWO OPTION
+                   document.getElementById("option1").style.display = "none";
+                   document.getElementById("option2").style.display = "none";
+                } 
+            } else {
+                 var result = xhr.status;
+            }
+         }
+     };
+     xhr.open("get","../script/correct.php", true);
+     xhr.send(null);
+    
 }
 function getRandom(){
     /*
@@ -349,3 +422,4 @@ function setBarChart(height1, height2, height3,height4){
     bar4.innerHTML = height4+"%";
 
 }
+

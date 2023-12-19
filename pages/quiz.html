@@ -47,7 +47,7 @@
             <div class="sidebar">
                 <div class="widget">
                     <h1>YOUR <br/> OVERALL <br/> PERFORMANCE</h1>
-                    <h2>70%</h2>
+                    <h2 id="score"></h2>
                 </div>
                 <div class="close">
                     <button onclick="restart();">RESTART</button><br/><br/>
@@ -74,14 +74,13 @@
                     </div>
                     <div id="question">
                         <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat
                         </p>
                     </div>
                     <div id="options">
-                        <button id="option1" onclick="processOption('option1');">OPTION A</button>
-                        <button id="option2" onclick="processOption('option2');">OPTION B</button>
-                        <button id="option3" onclick="processOption('option3');">OPTION C</button>
-                        <button id="option4" onclick="processOption('option4');">OPTION D</button>
+                        <button id="option1" onclick="processOption('option1');"></button>
+                        <button id="option2" onclick="processOption('option2');"></button>
+                        <button id="option3" onclick="processOption('option3');"></button>
+                        <button id="option4" onclick="processOption('option4');"></button>
                     </div>
                 </div>
                 <div id="aside">
