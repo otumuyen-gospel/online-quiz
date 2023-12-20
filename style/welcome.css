@@ -4,49 +4,162 @@ html *{
     border: none;
     text-decoration: none;
     outline: none;
-    color: yellow;
-    font-family: Noto sans,Verdana, Geneva, Tahoma, sans-serif;
+    font-family: Noto Sans, Arial ,Verdana, Geneva, Tahoma, sans-serif;
 }
 body{
-    background-image: url("../assets/bg1.jpeg");
-    background-size: cover;
-    background-repeat: no-repeat;
+    background-color: #f2f2f2;
 }
-#wrapper{
-    width: 100%;
-    height: 100vh;
-    text-align: center;
-    background-color: rgba(0, 0, 0, 0.5);
+#header{
+    text-align: right;
+    margin: 10vh 5%;
+}
+#header a{
+    font-weight: normal;
+}
+#header a:nth-of-type(2n){
+    display: inline-block;
+    background-color: white;
+    color: blueviolet;
+    padding: 5px 15px;
+    font-weight: 100;
+    border-radius: 50px;
+    border: 1px solid royalblue;
+    margin-left: 20px;
+}
+#header a:nth-of-type(2n):hover{
+   background-color: royalblue;
+   color: #fff;
 }
 #main{
-    padding: 13% 10% 0% 10%;
+    margin:23vh 5%;
+    text-align: center;
 }
 #main h1{
-    font-size: 50px;
     font-weight: bolder;
-    margin: 0px 0px 20px 0px;
+    color: royalblue;
+    margin-bottom: 10px;
 }
 #main p{
-    font-size: 12px;
-    font-weight: bolder;
-    width: 80%;
-    display: inline-block;
-    margin: 0px 0px 20px 0px;
+    font-size: 23px;
+    color: #666;
+    font-weight: 100;
+    margin-bottom: 10px;
 }
-
-#main a{
-    font-size: 14px;
+#btn{
+    font-size: 23px;
     font-weight: bolder;
-    margin: 0px 0px 20px 0px;
     display: inline-block;
     color: #fff;
-    background-color: goldenrod;
-    padding: 10px;
-    width:200px;
+    background-color: royalblue;
+    border: 1px solid royalblue;
+    padding: 10px 0px;
+    text-align: center;
+    width: 200px;
     border-radius: 50px;
 
 }
-#main a:hover{
-    color: #555;
-    background-color: yellow;
+
+#btn:hover{
+    background-color: white;
+    color: royalblue;
+}
+#banner{
+    background-image: url("../assets/student1.avif");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+#banner div{
+    padding: 45vh 5% 45vh 5%;
+    background-color: rgba(0, 0, 100, .5);
+    text-align: center;
+}
+#banner div h1{
+    color: #fff;
+    text-transform: capitalize;
+    margin-bottom: 10px;
+}
+#banner div p{
+    color: #fff;
+    text-transform: lowercase;
+    margin-bottom: 10px;
+    font-size: 25px;
+}
+#banner div a{
+    font-size: 15px;
+    font-weight: bolder;
+    display: inline-block;
+    color: royalblue;
+    background-color: #fff;
+    border: 1px solid royalblue;
+    padding: 10px 0px;
+    text-align: center;
+    width: 200px;
+    border-radius: 50px;
+
+}
+
+#banner div a:hover{
+    background-color: royalblue;
+    color: #fff;
+}
+
+
+#testimonial{
+    height: 100vh;
+    overflow: hidden;
+    background-color: royalblue;
+}
+#poster{
+    width: 50%;
+    float: left;
+    height: inherit;
+    background-image: url("../assets/student2.avif");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+#poster div{
+    height: 50%;
+    padding: 25% 10%;
+    width: 81%;
+    background-color: rgba(0, 0, 100, .7);
+}
+
+#poster div h1{
+    color: #fff;
+    font-size: 60px;
+}
+#person{
+    float: left;
+    width: 50%;
+}
+#person div{
+    margin: 5%;
+}
+#person div h3{
+    width:30px;
+    height: 30px;
+    margin: 5px;
+    text-align: center;
+    border-radius: 100px;
+    background-color: #fff;
+    color: royalblue;
+    float: left;
+}
+#person div h4{
+    color: yellow;
+}
+#person div p{
+    color: white;
+    margin: 5px;
+}
+
+#footer{
+    padding: 15vh 5%;
+    text-align: center;
+    background-color: #fff;
+}
+#footer p{
+    font-size: 12px;
+    color: royalblue;
+    font-weight: bolder;
 }
