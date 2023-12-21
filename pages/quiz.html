@@ -9,6 +9,51 @@
         <title>ONLINE QUIZ</title>
     </head>
     <body>
+        <div id="header">
+            <div class="help">
+                <button id="line1">
+                    <img src="../assets/audience.svg">
+                    <h1 id="line-cancel1">X</h1>
+                </button>
+                <button id="line2" onclick="call(2, 'callWindow');">
+                    <img src="../assets/call.svg">
+                    <h1 id="line-cancel2">X</h1>
+                </button>
+                <button id="line3" onclick="fiftyFifty(3);">
+                    <span>50:50</span>
+                    <h1 id="line-cancel3">X</h1>
+                </button>
+            </div>
+            <div class="links">
+                <a href="">Account</a>
+                <a href="">Statistics</a>
+                 <a href="">Log out</a>
+            </div>
+            <div class="cb"></div>
+        </div>
+        <div id="level">
+            <span class="circle">1</span>
+            <span class="circle">2</span>
+            <span class="circle">3</span>
+            <span class="circle">4</span>
+            <span class="circle">5</span>
+            <span class="circle">6</span>
+            <span class="circle">7</span>
+            <span class="circle">8</span>
+            <span class="circle">9</span>
+            <span class="circle">10</span>
+        </div>
+        <div class="cb"></div>
+        <div id="question">
+            General online quiz is drawn from all works of life. Test your ability now. 
+                to save your score you need to create an account first.
+        </div>
+        <div id="options">
+            <button id="option1">optionA</button>
+            <button id="option2">optionB</button>
+            <button id="option3">optionC</button>
+            <button id="option4">optionD</buttton>
+        </div>
         <div id="audienceWindow">
             <div class="sidebar">
                 <div class="bar-chart">
@@ -24,76 +69,38 @@
                     <div class="bar4">
                         25%
                     </div>
-                    <div class="cb"></div>
+                    
                 </div>
                 <div class="label">
-                    <span>A</span><span>B</span><span>C</span><span>D</span>
+                    <span>A</span>
+                    <span>B</span>
+                    <span>C</span>
+                    <span>D</span>
                 </div>
                 <div class="close">
-                    <button onclick="closeSidebar('audienceWindow');">CLOSE</button>
-                </div>
-            </div>
-        </div>
-        <div id="callWindow">
-            <div class="sidebar">
-                <div class="widget">
-                </div>
-                <div class="close">
-                    <button onclick="closeSidebar('callWindow');">CLOSE</button>
+                    <button class="close-btn">close</button>
                 </div>
             </div>
         </div>
         <div id="scoreWindow">
             <div class="sidebar">
                 <div class="widget">
-                    <h1>YOUR <br/> OVERALL <br/> PERFORMANCE</h1>
-                    <h2 id="score"></h2>
+                    <h1>YOUR OVERALL PERFORMANCE</h1>
+                    <h2 id="score">70%</h2>
                 </div>
                 <div class="close">
-                    <button onclick="restart();">RESTART</button><br/><br/>
-                    <button onclick="closeApp();">CLOSE</button>
+                    <button class="close-btn">logout</button><br/>
+                    <button id="restart-btn">restart</button>
                 </div>
             </div>
         </div>
-        <div id="wrapper">
-            <div id="container">
-                <div id="main">
-                    <div id="help">
-                        <button id="line1" onclick="audience(1,'audienceWindow');">
-                            <h1 id="line-cancel1">X</h1>
-                            <img src="../assets/audience.svg">
-                        </button>
-                        <button id="line2" onclick="call(2,'callWindow');">
-                            <h1 id="line-cancel2">X</h1>
-                            <img src="../assets/call.svg">
-                        </button>
-                        <button id="line3" onclick="fiftyFifty(3);">
-                            <h1 id="line-cancel3">X</h1>
-                            <span>50:50</span>
-                        </button>
-                    </div>
-                    <div id="question">
-                        <p>
-                        </p>
-                    </div>
-                    <div id="options">
-                        <button id="option1" onclick="processOption('option1');"></button>
-                        <button id="option2" onclick="processOption('option2');"></button>
-                        <button id="option3" onclick="processOption('option3');"></button>
-                        <button id="option4" onclick="processOption('option4');"></button>
-                    </div>
+        <div id="callWindow">
+            <div class="sidebar">
+                <div class="widget">
+                  
                 </div>
-                <div id="aside">
-                    <button id="lvl10">LEVEL 10</button>
-                    <button id="lvl9">LEVEL 9</button>
-                    <button id="lvl8">LEVEL 8</button>
-                    <button id="lvl7">LEVEL 7</button>
-                    <button id="lvl6">LEVEL 6</button>
-                    <button id="lvl5">LEVEL 5</button>
-                    <button id="lvl4">LEVEL 4</button>
-                    <button id="lvl3">LEVEL 3</button>
-                    <button id="lvl2">LEVEL 2</button>
-                    <button id="lvl1">LEVEL 1</button>
+                <div class="close">
+                    <button class="close-btn">close</button><br/>
                 </div>
             </div>
         </div>

@@ -1,44 +1,88 @@
+//global variables
 var Level = 1;
+var circle = Level;
+
+/*
+html element events
+*/
+document.getElementById("line1").onclick = function(){
+     audience(1,'audienceWindow');
+}
+document.getElementById("line2").onclick = function(){
+    call(2,'callWindow');
+}
+document.getElementById("line3").onclick = function(){
+    fiftyFifty(3);
+}
+document.getElementsByClassName("close-btn")[0].onclick = function(){
+    closeSidebar('audienceWindow');
+}
+document.getElementsByClassName("close-btn")[1].onclick = function(){
+    closeApp();
+}
+document.getElementsByClassName("close-btn")[2].onclick = function(){
+    closeSidebar('callWindow');
+}
+document.getElementById("restart-btn").onclick = function(){
+    restart();
+}
+document.getElementById("option1").onclick = function(){
+    processOption("option1");
+}
+document.getElementById("option2").onclick = function(){
+    processOption("option2");
+}
+document.getElementById("option3").onclick = function(){
+    processOption("option3");
+}
+document.getElementById("option4").onclick = function(){
+    processOption("option4");
+}
+
+
+/*
+ programming logic
+*/
 restart();
 function disableHelp(index){
  var line = document.getElementById("line"+index);
  var cancel = document.getElementById("line-cancel"+index);
  cancel.style.display = "block";
- line.style.backgroundColor = "yellow";
+ line.style.backgroundColor = "#ccc";
  line.disabled = true;
 }
 function enableHelp(){
     var line = document.getElementById("line1");
     var cancel = document.getElementById("line-cancel1");
     cancel.style.display = "none";
-    line.style.backgroundColor = "goldenrod";
+    line.style.backgroundColor = "white";
     line.addEventListener('mouseover',()=>{
-      line.style.backgroundColor = "yellow";
+      line.style.backgroundColor = "#ccc";
     });
     line.addEventListener('mouseout',()=>{
-      line.style.backgroundColor = "goldenrod";
+      line.style.backgroundColor = "white";
     });
     line.disabled = false;
     var line2 = document.getElementById("line2");
     var cancel2 = document.getElementById("line-cancel2");
     cancel2.style.display = "none";
-    line2.style.backgroundColor = "goldenrod";
+    line2.style.backgroundColor = "white";
     line2.addEventListener('mouseover',()=>{
-      line2.style.backgroundColor = "yellow";
+      line2.style.backgroundColor = "#ccc";
     });
     line2.addEventListener('mouseout',()=>{
-      line2.style.backgroundColor = "goldenrod";
+      line2.style.backgroundColor = "white";
     });
     line2.disabled = false;
     var line3 = document.getElementById("line3");
     var cancel3 = document.getElementById("line-cancel3");
     cancel3.style.display = "none";
-    line3.style.backgroundColor = "goldenrod";
+    line3.style.backgroundColor = "white";
     line3.addEventListener('mouseover',()=>{
-      line3.style.backgroundColor = "yellow";
+      line3.style.backgroundColor = "#ccc";
     });
     line3.addEventListener('mouseout',()=>{
-      line3.style.backgroundColor = "goldenrod";
+      line3.style.backgroundColor = "white";
     });
     line3.disabled = false;
 }
@@ -62,7 +106,7 @@ function startQuiz(){
         if (xhr.readyState == 4){
             if ((xhr.status >= 200 && xhr.status < 300) || xhr.status == 304){
                 var result = JSON.parse(xhr.responseText);
-                var question = document.querySelector("#question p");
+                var question = document.querySelector("#question");
                 question.innerHTML = result[0]["question"];
                 document.getElementById("option1").innerHTML = "A: "+result[0]["option1"];
                 document.getElementById("option2").innerHTML = "B: "+result[0]["option2"];
@@ -86,7 +130,7 @@ function nextQuiz(answer){
         if (xhr.readyState == 4){
             if ((xhr.status >= 200 && xhr.status < 300) || xhr.status == 304){
                 var result = JSON.parse(xhr.responseText);
-                var question = document.querySelector("#question p");
+                var question = document.querySelector("#question");
                 question.innerHTML = result[0]["question"];
                 document.getElementById("option1").innerHTML = "A: "+result[0]["option1"];
                 document.getElementById("option2").innerHTML = "B: "+result[0]["option2"];
@@ -104,34 +148,30 @@ function nextQuiz(answer){
 function setLevel(answer){
   if(Level < 10){
     Level += 1;
-    document.getElementById("lvl10").style.backgroundColor = "goldenrod";
-    document.getElementById("lvl10").style.color = "#fff";
-    document.getElementById("lvl10").style.backgroundColor = "goldenrod";
-    document.getElementById("lvl10").style.color = "#fff";
-    document.getElementById("lvl10").style.backgroundColor = "goldenrod";
-    document.getElementById("lvl10").style.color = "#fff";
-    document.getElementById("lvl10").style.backgroundColor = "goldenrod";
-    document.getElementById("lvl10").style.color = "#fff";
-    document.getElementById("lvl9").style.backgroundColor = "goldenrod";
-    document.getElementById("lvl9").style.color = "#fff";
-    document.getElementById("lvl8").style.backgroundColor = "goldenrod";
-    document.getElementById("lvl8").style.color = "#fff";
-    document.getElementById("lvl7").style.backgroundColor = "goldenrod";
-    document.getElementById("lvl7").style.color = "#fff";
-    document.getElementById("lvl6").style.backgroundColor = "goldenrod";
-    document.getElementById("lvl6").style.color = "#fff";
-    document.getElementById("lvl5").style.backgroundColor = "goldenrod";
-    document.getElementById("lvl5").style.color = "#fff";
-    document.getElementById("lvl4").style.backgroundColor = "goldenrod";
-    document.getElementById("lvl4").style.color = "#fff";
-    document.getElementById("lvl3").style.backgroundColor = "goldenrod";
-    document.getElementById("lvl3").style.color = "#fff";
-    document.getElementById("lvl2").style.backgroundColor = "goldenrod";
-    document.getElementById("lvl2").style.color = "#fff";
-    document.getElementById("lvl1").style.backgroundColor = "goldenrod";
-    document.getElementById("lvl1").style.color = "#fff";
-    document.getElementById("lvl"+Level).style.backgroundColor = "yellow";
-    document.getElementById("lvl"+Level).style.color = "#555";
+    document.getElementsByClassName("circle")[9].style.backgroundColor = "white";
+    document.getElementsByClassName("circle")[9].style.color = "royalblue";
+    document.getElementsByClassName("circle")[8].style.backgroundColor = "white";
+    document.getElementsByClassName("circle")[8].style.color = "royalblue";
+    document.getElementsByClassName("circle")[7].style.backgroundColor = "white";
+    document.getElementsByClassName("circle")[7].style.color = "royalblue";
+    document.getElementsByClassName("circle")[6].style.backgroundColor = "white";
+    document.getElementsByClassName("circle")[6].style.color = "royalblue";
+    document.getElementsByClassName("circle")[5].style.backgroundColor = "white";
+    document.getElementsByClassName("circle")[5].style.color = "royalblue";
+    document.getElementsByClassName("circle")[4].style.backgroundColor = "white";
+    document.getElementsByClassName("circle")[4].style.color = "royalblue";
+    document.getElementsByClassName("circle")[3].style.backgroundColor = "white";
+    document.getElementsByClassName("circle")[3].style.color = "royalblue";
+    document.getElementsByClassName("circle")[2].style.backgroundColor = "white";
+    document.getElementsByClassName("circle")[2].style.color = "royalblue";
+    document.getElementsByClassName("circle")[1].style.backgroundColor = "white";
+    document.getElementsByClassName("circle")[1].style.color = "royalblue";
+    document.getElementsByClassName("circle")[0].style.backgroundColor = "white";
+    document.getElementsByClassName("circle")[0].style.color = "royalblue";
+
+    circle = Level - 1;
+    document.getElementsByClassName("circle")[circle].style.backgroundColor = "royalblue";
+    document.getElementsByClassName("circle")[circle].style.color = "#fff";
   }else{
     //grade and show user performance
     score(answer);
@@ -140,36 +180,30 @@ function setLevel(answer){
 }
 function resetLevel(Level){
     //reset previous level animation
-    document.getElementById("lvl10").style.backgroundColor = "goldenrod";
-    document.getElementById("lvl10").style.color = "#fff";
-    document.getElementById("lvl10").style.backgroundColor = "goldenrod";
-    document.getElementById("lvl10").style.color = "#fff";
-    document.getElementById("lvl10").style.backgroundColor = "goldenrod";
-    document.getElementById("lvl10").style.color = "#fff";
-    document.getElementById("lvl10").style.backgroundColor = "goldenrod";
-    document.getElementById("lvl10").style.color = "#fff";
-    document.getElementById("lvl9").style.backgroundColor = "goldenrod";
-    document.getElementById("lvl9").style.color = "#fff";
-    document.getElementById("lvl8").style.backgroundColor = "goldenrod";
-    document.getElementById("lvl8").style.color = "#fff";
-    document.getElementById("lvl7").style.backgroundColor = "goldenrod";
-    document.getElementById("lvl7").style.color = "#fff";
-    document.getElementById("lvl6").style.backgroundColor = "goldenrod";
-    document.getElementById("lvl6").style.color = "#fff";
-    document.getElementById("lvl5").style.backgroundColor = "goldenrod";
-    document.getElementById("lvl5").style.color = "#fff";
-    document.getElementById("lvl4").style.backgroundColor = "goldenrod";
-    document.getElementById("lvl4").style.color = "#fff";
-    document.getElementById("lvl3").style.backgroundColor = "goldenrod";
-    document.getElementById("lvl3").style.color = "#fff";
-    document.getElementById("lvl2").style.backgroundColor = "goldenrod";
-    document.getElementById("lvl2").style.color = "#fff";
-    document.getElementById("lvl1").style.backgroundColor = "goldenrod";
-    document.getElementById("lvl1").style.color = "#fff";
-
-    //set current level animation
-    document.getElementById("lvl"+Level).style.backgroundColor = "yellow";
-    document.getElementById("lvl"+Level).style.color = "#555";
+    document.getElementsByClassName("circle")[9].style.backgroundColor = "white";
+    document.getElementsByClassName("circle")[9].style.color = "royalblue";
+    document.getElementsByClassName("circle")[8].style.backgroundColor = "white";
+    document.getElementsByClassName("circle")[8].style.color = "royalblue";
+    document.getElementsByClassName("circle")[7].style.backgroundColor = "white";
+    document.getElementsByClassName("circle")[7].style.color = "royalblue";
+    document.getElementsByClassName("circle")[6].style.backgroundColor = "white";
+    document.getElementsByClassName("circle")[6].style.color = "royalblue";
+    document.getElementsByClassName("circle")[5].style.backgroundColor = "white";
+    document.getElementsByClassName("circle")[5].style.color = "royalblue";
+    document.getElementsByClassName("circle")[4].style.backgroundColor = "white";
+    document.getElementsByClassName("circle")[4].style.color = "royalblue";
+    document.getElementsByClassName("circle")[3].style.backgroundColor = "white";
+    document.getElementsByClassName("circle")[3].style.color = "royalblue";
+    document.getElementsByClassName("circle")[2].style.backgroundColor = "white";
+    document.getElementsByClassName("circle")[2].style.color = "royalblue";
+    document.getElementsByClassName("circle")[1].style.backgroundColor = "white";
+    document.getElementsByClassName("circle")[1].style.color = "royalblue";
+    document.getElementsByClassName("circle")[0].style.backgroundColor = "white";
+    document.getElementsByClassName("circle")[0].style.color = "royalblue";
+    
+    circle = Level - 1;
+    document.getElementsByClassName("circle")[circle].style.backgroundColor = "royalblue";
+    document.getElementsByClassName("circle")[circle].style.color = "#fff";
 }
 function resetLevelAnimation(){
     // FROM LEVEL 10 TO 1
@@ -195,8 +229,8 @@ function disableOption(id){
     document.getElementById("option2").disabled = true;
     document.getElementById("option3").disabled = true;
     document.getElementById("option4").disabled = true;
-    document.getElementById(id).style.backgroundColor = "yellow";
-    document.getElementById(id).style.color = "#555";
+    document.getElementById(id).style.backgroundColor = "white";
+    document.getElementById(id).style.color = "royalblue";
 }
 function enableOption(){
     var button = document.getElementById("option1");
@@ -204,52 +238,52 @@ function enableOption(){
     var button3 = document.getElementById("option3");
     var button4 = document.getElementById("option4");
     button.disabled = false;
-    button.style.backgroundColor = "goldenrod";
+    button.style.backgroundColor = "royalblue";
     button.style.color = "#fff";
     button.style.display = "block";
     button.addEventListener('mouseover',()=>{
-        button.style.backgroundColor = "yellow";
-        button.style.color = "#555";
+        button.style.backgroundColor = "white";
+        button.style.color = "royalblue";
     });
     button.addEventListener('mouseout',()=>{
-         button.style.backgroundColor = "goldenrod";
-         button.style.color = "#fff";
+        button.style.backgroundColor = "royalblue";
+        button.style.color = "white";
      });
     button2.disabled = false;
-    button2.style.backgroundColor = "goldenrod";
+    button2.style.backgroundColor = "royalblue";
     button2.style.color = "#fff";
     button2.style.display = "block";
     button2.addEventListener('mouseover',()=>{
-        button2.style.backgroundColor = "yellow";
-        button2.style.color = "#555";
+        button2.style.backgroundColor = "white";
+        button2.style.color = "royalblue";
     });
     button2.addEventListener('mouseout',()=>{
-         button2.style.backgroundColor = "goldenrod";
-         button2.style.color = "#fff";
+        button2.style.backgroundColor = "royalblue";
+        button2.style.color = "#fff";
      });
     button3.disabled = false;
-    button3.style.backgroundColor = "goldenrod";
+    button3.style.backgroundColor = "royalblue";
     button3.style.display = "block";
     button3.style.color = "#fff";
     button3.addEventListener('mouseover',()=>{
-        button3.style.backgroundColor = "yellow";
-        button3.style.color = "#555";
+        button3.style.backgroundColor = "white";
+        button3.style.color = "royalblue";
     });
     button3.addEventListener('mouseout',()=>{
-         button3.style.backgroundColor = "goldenrod";
-         button3.style.color = "#fff";
+        button3.style.backgroundColor = "royalblue";
+        button3.style.color = "#fff";
     });
     button4.disabled = false;
-    button4.style.backgroundColor = "goldenrod";
+    button4.style.backgroundColor = "royalblue";
     button4.style.display = "block";
     button4.style.color = "#fff";
     button4.addEventListener('mouseover',()=>{
-        button4.style.backgroundColor = "yellow";
-        button4.style.color = "#555";
+        button4.style.backgroundColor = "white";
+        button4.style.color = "royalblue";
     });
     button4.addEventListener('mouseout',()=>{
-         button4.style.backgroundColor = "goldenrod";
-         button4.style.color = "#fff";
+        button4.style.backgroundColor = "royalblue";
+        button4.style.color = "#fff";
      });
 }
 function audience(index,value){
@@ -311,7 +345,7 @@ function score(answer){
 function call(index,value){
  disableHelp(index);
  openSidebar(value);
- var widget1 = document.getElementsByClassName("widget")[0];
+ var widget1 = document.getElementsByClassName("widget")[1];
  widget1.innerHTML = "";
  callSimulation(widget1);
 }
