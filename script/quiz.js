@@ -19,6 +19,7 @@ document.getElementsByClassName("close-btn")[0].onclick = function(){
 }
 document.getElementsByClassName("close-btn")[1].onclick = function(){
     closeApp();
+    window.location.href = "../script/logout.php";
 }
 document.getElementsByClassName("close-btn")[2].onclick = function(){
     closeSidebar('callWindow');
@@ -113,7 +114,7 @@ function startQuiz(){
                 document.getElementById("option3").innerHTML = "C: "+result[0]["option3"];
                 document.getElementById("option4").innerHTML = "D: "+result[0]["option4"];
             } else {
-                var result = xhr.status;
+                var result = xhr.statusText;
             }
         }
     };

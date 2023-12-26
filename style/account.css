@@ -1,0 +1,109 @@
+html *{
+    margin: 0px;
+    padding: 0px;
+    border: none;
+    text-decoration: none;
+    outline: none;
+    font-family: Noto sans, Arial, Verdana, Geneva, Tahoma, sans-serif;
+}
+.cb{
+    clear: both;
+}
+body{
+    background-color: #f2f2f2;
+}
+#header{
+    text-align: right;
+    margin: 6vh 5%;
+    overflow: hidden;
+}
+#header .help{
+    float: left;
+}
+#header .help h1{
+    color: royalblue;
+
+}
+
+#header .links{
+    float: right;
+}
+#header .links a{
+    font-weight: normal;
+    margin-left: 20px;
+}
+#header .links a:nth-of-type(3n){
+    display: inline-block;
+    background-color: white;
+    color: blueviolet;
+    padding: 5px 15px;
+    font-weight: 100;
+    border-radius: 50px;
+    border: 1px solid royalblue;
+}
+#header .links a:nth-of-type(3n):hover{
+   background-color: royalblue;
+   color: #fff;
+}
+
+.auth-form{
+    padding: 5vh 20%;
+    border-top: 10px solid royalblue;
+    background-color: #fff;
+}
+.auth-form .loader{
+    display: block;
+    font-weight: bolder;
+    font-size: 50px;
+    text-align: center;
+    margin: 0px;
+    padding: 0px;
+    color: green;
+}
+.auth-form h1{
+    color:royalblue;
+}
+.auth-form .action-text{
+    color: darkred;
+    font-weight: bolder;
+    font-size: 14px;
+}
+.auth-form .auth-form-element{
+    margin: 20px 0px;
+}
+.auth-form .auth-form-element span{
+    margin: 5px 0px;
+    font-weight: bolder;
+    color: royalblue;
+}
+.auth-form .auth-form-element button{
+    background-color: royalblue;
+    border-radius: 50px;
+    color: #fff;
+    border: 1px solid royalblue;
+    width: 103%;
+    padding: 10px;
+    font-weight: bolder;
+}
+.auth-form .auth-form-element button:hover{
+    background-color: white;
+    color: royalblue;
+}
+.auth-form .auth-form-element input{
+    background-color: white;
+    border-radius: 50px;
+    color: #555;
+    border: 2px solid #ccc;
+    width: 100%;
+    padding: 10px;
+    font-weight: bolder;
+}
+.auth-form .auth-form-element input:hover{
+    border:2px solid rosybrown;
+}
+.auth-form .auth-form-element input:active{
+    border:2px solid rosybrown;
+}
+.auth-form .auth-form-element input:focus{
+    border:2px solid rosybrown;
+}

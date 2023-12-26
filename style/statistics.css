@@ -1,0 +1,123 @@
+html *{
+    margin: 0px;
+    padding: 0px;
+    border: none;
+    text-decoration: none;
+    outline: none;
+    font-family: Noto sans, Arial, Verdana, Geneva, Tahoma, sans-serif;
+}
+.cb{
+    clear: both;
+}
+body{
+    background-color: #f2f2f2;
+}
+#header{
+    text-align: right;
+    margin: 6vh 5%;
+    overflow: hidden;
+}
+#header .help{
+    float: left;
+}
+#header .help h1{
+    color: royalblue;
+
+}
+
+#header .links{
+    float: right;
+}
+#header .links a{
+    font-weight: normal;
+    margin-left: 20px;
+}
+#header .links a:nth-of-type(3n){
+    display: inline-block;
+    background-color: white;
+    color: blueviolet;
+    padding: 5px 15px;
+    font-weight: 100;
+    border-radius: 50px;
+    border: 1px solid royalblue;
+}
+#header .links a:nth-of-type(3n):hover{
+   background-color: royalblue;
+   color: #fff;
+}
+
+.auth-form{
+    padding: 5vh 5%;
+    width: 90%;
+    border-top: 10px solid royalblue;
+    background-color: #fff;
+}
+.auth-form h1{
+    color:royalblue;
+}
+.auth-form .action-text{
+    color: darkred;
+    font-weight: bolder;
+    font-size: 14px;
+}
+
+.auth-form table{
+    display: table; 
+    border-collapse: collapse;
+    border-spacing: 2px; 
+    width: 100%;
+}
+.auth-form table tr{
+    display: table-row; 
+    vertical-align: inherit;
+    border-color: inherit;
+}
+.auth-form table td{
+    display: table-cell; 
+    vertical-align: inherit; 
+    text-align: center;
+}
+.auth-form table tr > th { 
+    text-align:center; 
+    background:#f2f2f2; 
+    color:royalblue;
+    width: 33.3%;
+    padding: 10px 0px;
+}
+.auth-form table tbody tr td{ 
+    background:white; 
+    color:royalblue;
+    font-weight: bolder;
+    padding: 10px 0px;
+    width: 33.3%;
+}
+.auth-form table tbody tr:nth-of-type(2n) td { 
+    background:#f2f2f2; 
+    color:royalblue;
+    font-weight: bolder;
+    padding: 10px 0px;
+    width: 33.3%;
+}
+.auth-form .small-btn{
+    margin: 5px 0px;
+}
+.auth-form .small-btn button{
+    width: 37px;
+    height: 28px;
+    background-color: royalblue;
+    color: #fff;
+    border:2px solid royalblue;
+    border-radius: 5px;
+}
+.auth-form .small-btn button:hover{
+    background-color: white;
+    color: royalblue;
+}
+.auth-form .small-btn button:focus{
+    background-color: white;
+    color: royalblue;
+}
+.auth-form .small-btn button:active{
+    background-color: white;
+    color: royalblue;
+}

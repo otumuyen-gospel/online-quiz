@@ -1,3 +1,10 @@
+<?php
+    session_start();
+    if(!isset($_SESSION["userid"])){
+        //send user to login page
+        header("location:login.html");
+    }
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -25,9 +32,9 @@
                 </button>
             </div>
             <div class="links">
-                <a href="">Account</a>
-                <a href="">Statistics</a>
-                 <a href="">Log out</a>
+                <a href="account.php">Account</a>
+                <a href="statistics.php">Statistics</a>
+                 <a href="../script/logout.php">Log out</a>
             </div>
             <div class="cb"></div>
         </div>

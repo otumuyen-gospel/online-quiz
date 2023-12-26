@@ -48,8 +48,7 @@ class Database{
             $prep = $this->mysqli->prepare($sql);
             //SKIPPED BINDING OF PARAMETERS
             $prep->execute();
-            $result = $prep->affected_rows . " row(s) affected";
-            echo $result;
+            $result = $prep->affected_rows;
             $prep->close();
         }catch(exception $e){
             $result = $e->getMessage();

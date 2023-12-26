@@ -1,0 +1,107 @@
+html *{
+    margin: 0px;
+    padding: 0px;
+    border: none;
+    text-decoration: none;
+    outline: none;
+    font-family: Noto sans, Arial, Verdana, Geneva, Tahoma, sans-serif;
+}
+.cb{
+    clear: both;
+}
+body{
+    background-color: #f2f2f2;
+}
+#header{
+    text-align: right;
+    margin: 6vh 5%;
+    overflow: hidden;
+}
+#header a{
+    font-weight: normal;
+    margin-left: 20px;
+}
+#header a:nth-of-type(2n){
+    display: inline-block;
+    background-color: white;
+    color: blueviolet;
+    padding: 5px 15px;
+    font-weight: 100;
+    border-radius: 50px;
+    border: 1px solid royalblue;
+}
+#header a:nth-of-type(2n):hover{
+   background-color: royalblue;
+   color: #fff;
+}
+#loader{
+    display: none;
+    font-weight: bolder;
+    font-size: 50px;
+    text-align: center;
+    margin: 0px;
+    padding: 0px;
+    color: green;
+}
+#auth-form{
+    padding: 5vh 30%;
+}
+#auth-form h1{
+    text-align: center;
+    color:royalblue;
+}
+#auth-form .action-text{
+    color: darkred;
+    font-weight: bolder;
+    font-size: 14px;
+    text-align: center;
+}
+#auth-form .auth-form-element{
+    margin: 20px 0px;
+}
+#auth-form .auth-form-element span{
+    margin: 5px 0px;
+    font-weight: bolder;
+    color: royalblue;
+}
+#auth-form .auth-form-element button{
+    background-color: royalblue;
+    border-radius: 50px;
+    color: #fff;
+    border: 1px solid royalblue;
+    width: 50%;
+    margin-right: 20px;
+    padding: 10px;
+    font-weight: bolder;
+}
+#auth-form .auth-form-element button:hover{
+    background-color: white;
+    color: royalblue;
+}
+#auth-form .auth-form-element button:active{
+    background-color: white;
+    color: royalblue;
+}
+#auth-form .auth-form-element button:focus{
+    background-color: white;
+    color: royalblue;
+}
+
+#auth-form .auth-form-element input{
+    background-color: white;
+    border-radius: 50px;
+    color: #555;
+    border: 2px solid #ccc;
+    width: 100%;
+    padding: 10px;
+    font-weight: bolder;
+}
+#auth-form .auth-form-element input:hover{
+    border:2px solid rosybrown;
+}
+#auth-form .auth-form-element input:active{
+    border:2px solid rosybrown;
+}
+#auth-form .auth-form-element input:focus{
+    border:2px solid rosybrown;
+}
