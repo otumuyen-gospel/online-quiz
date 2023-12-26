@@ -44,6 +44,9 @@ function updateEmail(){
                 var result = xhr.responseText;
                 stopLoader(loader,1);
                 actionText.innerHTML = result;
+                if(result.includes("successful")){
+                    window.location.reload();
+                }
             } else {
                 var result = xhr.statusText;
                 actionText.innerHTML = result;

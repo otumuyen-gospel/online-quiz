@@ -56,9 +56,9 @@ class Processor{
     }
     function prevStatistic(){
         $_SESSION["prev"]  = $_SESSION["next"] - 14;
-        $data = $this->db->queryDb("select * from statistics where userid=".$_SESSION['userid'].
-    " limit 7 offset ".$_SESSION['prev']);
-        if(count($data) != 0 && $_SESSION["prev"] >= 0){
+        if($_SESSION["prev"] >= 0){
+            $data = $this->db->queryDb("select * from statistics where userid=".$_SESSION['userid'].
+            " limit 7 offset ".$_SESSION['prev']);
             $_SESSION["next"]  -= 7;
         }
         echo json_encode($data);
@@ -141,6 +141,7 @@ class Processor{
             $count = $this->db->updateDb("update account set username='".
             $email."' where id=".$_SESSION["userid"]);
             if($count > 0){
+                $_SESSION["username"] = $email;
                 echo "email update operation was successful";
             }else{
                 echo "error trying to update account";

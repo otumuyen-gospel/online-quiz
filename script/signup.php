@@ -4,9 +4,7 @@ $proc = new Processor();
 $proc->initDb();
 $email = $_POST["email"];
 $password = $_POST["password"];
-$regex = "/^[\w\d!#$%&'*+-\/=?^`{|}~]+(\.[\w\d!#$%&'*+-\/=?^`{|}~]+)* ➥
-@([a-z\d][-a-z\d]*[a-z\d]\.)+[a-z][-a-z\d]*[a-z]$/";
-if(isset($email) && strlen(trim($email)) != 0){ //preg_match IS GIVEN PROBLEM
+if(filter_var($email, FILTER_VALIDATE_EMAIL)){
     if(isset($password) && strlen(trim($password)) >= 8){
         $proc->signup($email, $password);
     }else{
