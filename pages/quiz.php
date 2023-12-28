@@ -3,6 +3,7 @@
     if(!isset($_SESSION["userid"])){
         //send user to login page
         header("location:login.html");
+        die();
     }
 ?>
 <!DOCTYPE html>

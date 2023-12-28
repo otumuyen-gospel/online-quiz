@@ -90,6 +90,10 @@ class Processor{
         unset($_SESSION['userid']);
         unset($_SESSION["next"]);
         unset($_SESSION['prev']);
+        unset($_SESSION["message"]);
+        unset($_SESSION['verified']);
+        unset($_SESSION["code"]);
+        unset($_SESSION['email']);
         session_destroy();
 
     }
@@ -135,6 +139,16 @@ class Processor{
             echo "wrong password";
         }
     }
+    function changePassword($password){
+        $count = $this->db->updateDb("update account set password='".
+            md5($password)."' where username='".$_SESSION["email"]."'");
+            if($count > 0){
+                $this->destroy();
+                echo "password change operation was successful";
+            }else{
+                echo "error trying to update account";
+            }
+    }
     function updateEmail($email){
         $data = $this->db->queryDb("select * from account where id=".$_SESSION["userid"]);
         if(count($data) > 0){
@@ -168,6 +182,34 @@ class Processor{
         }
     }
 
+    function generateCode(){
+
+        for($i = 0; $i < 5; $i++){
+           $code .= random_int(1, 9);
+        }
+        return $code;
+    }
+    function confirmUser($email){
+        $data = $this->db->queryDb("select * from account where username='".$email."'");
+        if(count($data) != 0){
+            return true;
+        }else{
+            return false;
+        }
+    }
+    function sendMail($to, $code){
+         $from = "joe@anotherdomain.com";
+         $cc = $from;
+         $subject = "ONLINE-QUIZ EMAIL VERIFICATION";
+         $body = <<< BODY
+YOUR EMAIL VERIFICATION CODE
+
+  CODE : $code
+
+BODY;
+
+        return mail($to, $subject, $body, "From: $from\r\nCc: $cc");
+    }
 }
  
 ?>

@@ -1,3 +1,11 @@
+<?php
+session_start();
+if(!$_GET["verified"] && !$_SESSION["verified"]){
+    //send user to login page
+    header("location:login.html");
+    die();
+}
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -16,16 +24,17 @@
         <div id="auth-form">
             <h1>CHANGE YOUR PASSWORD</h1>
             <p class="action-text"></p>
+            <h1 id="loader"></h1>
             <div class="auth-form-element">
                 <span>Enter new password </span><br/>
-                <input type="password">
+                <input type="password" name="password">
             </div>
             <div class="auth-form-element">
                 <span>Confirm password </span><br/>
-                <input type="password">
+                <input type="password" name="confirm">
             </div>
             <div class="auth-form-element">
-                <button>CHANGE</button>
+                <button id="submit">CHANGE</button>
                 <a href="login.html">Login Instead ?</a>
             </div>
         </div>

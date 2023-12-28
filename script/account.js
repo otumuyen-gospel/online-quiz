@@ -1,11 +1,17 @@
 document.getElementsByTagName("button")[0].onclick = function(){
+    document.getElementsByTagName("button")[0].disabled = true;
     updatePassword();
+    document.getElementsByTagName("button")[0].disabled = false;
 }
 document.getElementsByTagName("button")[1].onclick = function(){
+    document.getElementsByTagName("button")[1].disabled = true;
     updateEmail();
+    document.getElementsByTagName("button")[1].disabled = false;
 }
 document.getElementsByTagName("button")[2].onclick = function(){
+    document.getElementsByTagName("button")[2].disabled = true;
     deleteUser();
+    document.getElementsByTagName("button")[2].disabled = false;
 }
 
 function updatePassword(){

@@ -1,3 +1,59 @@
+document.getElementById("submit").onclick = function(){
+    document.getElementById("submit").disabled = true;
+    verify();
+    document.getElementById("submit").disabled = false;
+}
+function resend(){
+    var actionText = document.getElementsByClassName("action-text")[0];
+    var loader = startLoader();
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function(){
+        if (xhr.readyState == 4){
+            if ((xhr.status >= 200 && xhr.status < 300) || xhr.status == 304){
+                var result = xhr.responseText;
+                actionText.innerHTML = result;
+                stopLoader(loader);
+            } else {
+                var result = xhr.statusText;
+                actionText.innerHTML = result;
+                stopLoader(loader);
+            }
+        }
+    };
+    xhr.open("post","../script/forgot.php", true);
+    xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+    xhr.send(null);
+}
+
+
+function verify(){
+    var code = document.getElementsByName("code")[0].value;
+    var actionText = document.getElementsByClassName("action-text")[0];
+    var loader = startLoader();
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function(){
+        if (xhr.readyState == 4){
+            if ((xhr.status >= 200 && xhr.status < 300) || xhr.status == 304){
+                var result = xhr.responseText;
+                if(result.includes("success")){
+                    window.location.href="../pages/change.php?verified=true";
+                }else{
+                    actionText.innerHTML = result;
+                }
+                stopLoader(loader);
+            } else {
+                var result = xhr.statusText;
+                actionText.innerHTML = result;
+                stopLoader(loader);
+            }
+        }
+    };
+    xhr.open("post","../script/verify.php", true);
+    xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+    xhr.send("code="+code);
+}
+
+
 
 function startLoader(){
     var count = 1;

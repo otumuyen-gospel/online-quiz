@@ -1,5 +1,7 @@
 document.getElementById("signup").onclick = function(){
+    document.getElementById("signup").disabled = true;
     signup();
+    document.getElementById("signup").disabled = false;
 }
 window.onload = function(){
     var url = "../script/status.php";

@@ -1,3 +1,11 @@
+<?php
+session_start();
+if($_GET["message"] != "verify" && $_SESSION["message"] !="verify"){
+    //send user to login page
+    header("location:login.html");
+    die();
+}
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -16,13 +24,14 @@
         <div id="auth-form">
             <h1>CODE VERIFICATION</h1>
             <p class="action-text"></p>
+            <h1 id="loader"></h1>
             <div class="auth-form-element">
                 <span>Enter the code we sent to your email </span><br/>
-                <input type="text">
+                <input type="text" name="code">
             </div>
             <div class="auth-form-element">
-                <button>VERIFY</button>
-                <a href="login.html">Login Instead ?</a>
+                <button id="submit">VERIFY</button>
+                <a href="Javascript:resend();">Re-send Code ?</a>
             </div>
         </div>
     </body>

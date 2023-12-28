@@ -1,5 +1,7 @@
 document.getElementById("login").onclick = function(){
+    document.getElementById("login").disabled = true;
     login();
+    document.getElementById("login").disabled = false;
 }
 window.onload = function(){
     var url = "../script/status.php";
