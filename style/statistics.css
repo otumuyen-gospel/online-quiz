@@ -121,3 +121,28 @@ body{
     background-color: white;
     color: royalblue;
 }
+
+
+@media only screen and (max-width:560px) {
+    #header{
+        text-align: center;
+        margin: auto;
+    }
+    #header .help{
+        float: none;
+        text-align: center;
+        margin: 10px;
+    }
+    #header .help button{
+        float: none;
+        text-align: center;
+    }
+    #header .links{
+        float: none;
+        margin-bottom: 20px;
+    }
+    #header .links a{
+        margin: 0px 10px;
+    }
+   
+}

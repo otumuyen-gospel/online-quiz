@@ -348,3 +348,31 @@ body{
     color: #fff;
 }
 
+
+
+@media only screen and (max-width:560px) {
+    #header{
+        text-align: center;
+        margin: auto;
+    }
+    #header .help{
+        float: none;
+        text-align: center;
+        margin: 10px;
+    }
+    #header .help button{
+        float: none;
+        text-align: center;
+    }
+    #header .links{
+        float: none;
+    }
+    #header .links a{
+        margin: 0px 10px;
+    }
+    #options button{
+        width: 100%;
+        float: none;
+        margin: 2% 0px;
+    }
+}

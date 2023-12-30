@@ -107,3 +107,37 @@ body{
 .auth-form .auth-form-element input:focus{
     border:2px solid rosybrown;
 }
+
+
+@media only screen and (max-width:560px) {
+    #header{
+        text-align: center;
+        margin: auto;
+    }
+    #header .help{
+        float: none;
+        text-align: center;
+        margin: 10px;
+    }
+    #header .help button{
+        float: none;
+        text-align: center;
+    }
+    #header .links{
+        float: none;
+        margin-bottom: 20px;
+    }
+    #header .links a{
+        margin: 0px 10px;
+    }
+    .auth-form{
+        padding: 5vh 5%;
+    }
+    .auth-form .auth-form-element input{
+        padding: 10px 0px;
+    }
+    .auth-form .auth-form-element button{
+        width: 100%;
+    }
+   
+}

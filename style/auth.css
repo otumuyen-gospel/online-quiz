@@ -105,3 +105,25 @@ body{
 #auth-form .auth-form-element input:focus{
     border:2px solid rosybrown;
 }
+
+
+/*
+  media query responsive
+*/
+
+@media only screen and (max-width:850px) and (min-width:500px){
+    #auth-form{
+        padding: 5vh 15%;
+    }
+}
+@media only screen and (max-width:499px) {
+    #auth-form{
+        padding: 5vh 5%;
+    }
+    #auth-form .auth-form-element input{
+        padding: 10px 0px;
+    }
+    #auth-form .auth-form-element button{
+        margin-right: 3px;
+    }
+}

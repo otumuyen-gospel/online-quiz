@@ -162,3 +162,52 @@ body{
     color: royalblue;
     font-weight: bolder;
 }
+
+
+
+
+
+/*
+  media query responsive
+*/
+
+@media only screen and (max-width:1091px) and (min-width:500px){
+    #testimonial{
+        height: 500px;
+    }
+    #poster{
+        height: 100%;
+    }
+    #poster div{
+        height: inherit;
+        width: 91%;
+        padding: 25% 5%;
+    }
+
+}
+@media only screen and (max-width:499px) {
+    #testimonial{
+        height: auto;
+    }
+    #poster{
+        height: auto;
+        width: auto;
+        float: none;
+    }
+    #poster div{
+        height: auto;
+        width: auto;
+        padding: 25% 5%;
+    }
+    #poster div h1{
+        font-size: 50px;
+        text-align: center;
+    }
+    #person{
+        float: none;
+        width: auto;
+    }
+    #person div{
+        margin: 10% 2%;
+    }
+}
