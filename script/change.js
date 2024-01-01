@@ -40,7 +40,7 @@ function startLoader(){
             loader.innerHTML = ".";
             count = 1;
         }
-    }, 1500);
+    }, 500);
     return animation;
 }
 function stopLoader(id){

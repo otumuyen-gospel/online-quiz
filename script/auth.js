@@ -1,7 +1,6 @@
 document.getElementById("login").onclick = function(){
     document.getElementById("login").disabled = true;
     login();
-    document.getElementById("login").disabled = false;
 }
 window.onload = function(){
     var url = "../script/status.php";
@@ -34,7 +33,7 @@ function startLoader(){
             loader.innerHTML = ".";
             count = 1;
         }
-    }, 1500);
+    }, 500);
     return animation;
 }
 function stopLoader(id){
@@ -58,10 +57,12 @@ function login(){
                     window.location.href="../pages/quiz.php";
                 }
                 stopLoader(loader);
+                document.getElementById("login").disabled = false;
             } else {
                 var result = xhr.statusText;
                 actionText.innerHTML = result;
                 stopLoader(loader);
+                document.getElementById("login").disabled = false;
             }
         }
     };

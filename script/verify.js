@@ -1,7 +1,6 @@
 document.getElementById("submit").onclick = function(){
     document.getElementById("submit").disabled = true;
     verify();
-    document.getElementById("submit").disabled = false;
 }
 function resend(){
     var actionText = document.getElementsByClassName("action-text")[0];
@@ -13,10 +12,12 @@ function resend(){
                 var result = xhr.responseText;
                 actionText.innerHTML = result;
                 stopLoader(loader);
+                document.getElementById("submit").disabled = false;
             } else {
                 var result = xhr.statusText;
                 actionText.innerHTML = result;
                 stopLoader(loader);
+                document.getElementById("submit").disabled = false;
             }
         }
     };
@@ -37,10 +38,12 @@ function verify(){
                 var result = xhr.responseText;
                 if(result.includes("success")){
                     window.location.href="../pages/change.php?verified=true";
+
                 }else{
                     actionText.innerHTML = result;
                 }
                 stopLoader(loader);
+                document.getElementById("submit").disabled = false;
             } else {
                 var result = xhr.statusText;
                 actionText.innerHTML = result;
@@ -66,7 +69,7 @@ function startLoader(){
             loader.innerHTML = ".";
             count = 1;
         }
-    }, 1500);
+    }, 500);
     return animation;
 }
 function stopLoader(id){

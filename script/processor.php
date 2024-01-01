@@ -198,7 +198,7 @@ class Processor{
         }
     }
     function sendMail($to, $code){
-         $from = "joe@anotherdomain.com";
+         $from = "otumsgosepel@gmail.com";
          $cc = $from;
          $subject = "ONLINE-QUIZ EMAIL VERIFICATION";
          $body = <<< BODY

@@ -1,17 +1,14 @@
 document.getElementsByTagName("button")[0].onclick = function(){
     document.getElementsByTagName("button")[0].disabled = true;
     updatePassword();
-    document.getElementsByTagName("button")[0].disabled = false;
 }
 document.getElementsByTagName("button")[1].onclick = function(){
     document.getElementsByTagName("button")[1].disabled = true;
     updateEmail();
-    document.getElementsByTagName("button")[1].disabled = false;
 }
 document.getElementsByTagName("button")[2].onclick = function(){
     document.getElementsByTagName("button")[2].disabled = true;
     deleteUser();
-    document.getElementsByTagName("button")[2].disabled = false;
 }
 
 function updatePassword(){
@@ -27,10 +24,12 @@ function updatePassword(){
                 var result = xhr.responseText;
                 stopLoader(loader,0);
                 actionText.innerHTML = result;
+                document.getElementsByTagName("button")[0].disabled = false;
             } else {
                 var result = xhr.statusText;
                 actionText.innerHTML = result;
                 stopLoader(loader,0);
+                document.getElementsByTagName("button")[0].disabled = false;
             }
         }
     };
@@ -53,10 +52,12 @@ function updateEmail(){
                 if(result.includes("successful")){
                     window.location.reload();
                 }
+                document.getElementsByTagName("button")[1].disabled = false;
             } else {
                 var result = xhr.statusText;
                 actionText.innerHTML = result;
                 stopLoader(loader,1);
+                document.getElementsByTagName("button")[1].disabled = false;
             }
         }
     };
@@ -75,12 +76,15 @@ function deleteUser(){
                 var result = xhr.responseText;
                 stopLoader(loader,2);
                 if(result == "deleted"){
+                    window.alert("account deleted successfully");
                     window.location.href = "../";
                 }
+                document.getElementsByTagName("button")[2].disabled = false;
             } else {
                 var result = xhr.statusText;
                 actionText.innerHTML = result;
                 stopLoader(loader,2);
+                document.getElementsByTagName("button")[2].disabled = false;
             }
         }
     };
@@ -101,7 +105,7 @@ function startLoader(index){
             loader.innerHTML = ".";
             count = 1;
         }
-    }, 1500);
+    }, 500);
     return animation;
 }
 function stopLoader(id, index){

@@ -1,7 +1,6 @@
 document.getElementById("submit").onclick = function(){
     document.getElementById("submit").disabled = true;
     sendMail();
-    document.getElementById("submit").disabled = false;
 }
 
 function sendMail(){
@@ -18,10 +17,12 @@ function sendMail(){
                     window.location.href="../pages/verify.php?message=verify";
                 }
                 stopLoader(loader);
+                document.getElementById("submit").disabled = false;
             } else {
                 var result = xhr.statusText;
                 actionText.innerHTML = result;
                 stopLoader(loader);
+                document.getElementById("submit").disabled = false;
             }
         }
     };
@@ -42,7 +43,7 @@ function startLoader(){
             loader.innerHTML = ".";
             count = 1;
         }
-    }, 1500);
+    }, 500);
     return animation;
 }
 function stopLoader(id){

@@ -1,7 +1,6 @@
 document.getElementById("signup").onclick = function(){
     document.getElementById("signup").disabled = true;
     signup();
-    document.getElementById("signup").disabled = false;
 }
 window.onload = function(){
     var url = "../script/status.php";
@@ -36,7 +35,7 @@ function startLoader(){
             loader.innerHTML = ".";
             count = 1;
         }
-    }, 1500);
+    }, 500);
     return animation;
 }
 function stopLoader(id){
@@ -59,10 +58,12 @@ function signup(){
                     window.location.href="login.html";
                 }
                 stopLoader(loader);
+                document.getElementById("signup").disabled = false;
             } else {
                 var result = xhr.statusText;
                 actionText.innerHTML = result;
                 stopLoader(loader);
+                document.getElementById("signup").disabled = false;
             }
         }
     };
